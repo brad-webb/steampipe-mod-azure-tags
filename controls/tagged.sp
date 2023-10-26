@@ -21,9 +21,9 @@ locals {
   tagged_sql_resource_group = replace(local.tagged_sql, "__DIMENSIONS__", "resource_group, subscription_id")
 }
 
-benchmark "untagged" {
-  title       = "Untagged"
-  description = "Untagged resources are difficult to monitor and should be identified and remediated."
+benchmark "tagged" {
+  title       = "tagged"
+  description = "All resources with a tag"
   children = [
     control.api_management_tagged,
     control.app_service_environment_tagged,
@@ -92,341 +92,341 @@ benchmark "untagged" {
 control "api_management_tagged" {
   title       = "API Management services should be tagged"
   description = "Check if API Management services have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_api_management")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_api_management")
 }
 
 control "app_service_environment_tagged" {
   title       = "App Service environments should be tagged"
   description = "Check if App Service environments have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_app_service_environment")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_app_service_environment")
 }
 
 control "app_service_function_app_tagged" {
   title       = "App Service function apps should be tagged"
   description = "Check if App Service function apps have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_app_service_function_app")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_app_service_function_app")
 }
 
 control "app_service_plan_tagged" {
   title       = "App Service plans should be tagged"
   description = "Check if App Service plans have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_app_service_plan")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_app_service_plan")
 }
 
 control "app_service_web_app_tagged" {
   title       = "App Service web apps should be tagged"
   description = "Check if App Service web apps have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_app_service_web_app")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_app_service_web_app")
 }
 
 control "application_security_group_tagged" {
   title       = "Application security groups should be tagged"
   description = "Check if Application security groups have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_application_security_group")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_application_security_group")
 }
 
 control "batch_account_tagged" {
   title       = "Batch accounts should be tagged"
   description = "Check if Batch accounts have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_batch_account")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_batch_account")
 }
 
 control "compute_availability_set_tagged" {
   title       = "Compute availability sets should be tagged"
   description = "Check if Compute availability sets have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_availability_set")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_availability_set")
 }
 
 control "compute_disk_tagged" {
   title       = "Compute disks should be tagged"
   description = "Check if Compute disks have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_disk")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_disk")
 }
 
 control "compute_disk_encryption_set_tagged" {
   title       = "Compute disk encryption sets should be tagged"
   description = "Check if Compute disk encryption sets have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_disk_encryption_set")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_disk_encryption_set")
 }
 
 control "compute_image_tagged" {
   title       = "Compute images should be tagged"
   description = "Check if Compute images have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_image")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_image")
 }
 
 control "compute_snapshot_tagged" {
   title       = "Compute snapshots should be tagged"
   description = "Check if Compute snapshots have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_snapshot")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_snapshot")
 }
 
 control "compute_virtual_machine_tagged" {
   title       = "Compute virtual machines should be tagged"
   description = "Check if Compute virtual machines have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_virtual_machine")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_virtual_machine")
 }
 
 control "compute_virtual_machine_scale_set_tagged" {
   title       = "Compute virtual machine scale sets should be tagged"
   description = "Check if Compute virtual machine scale sets have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_virtual_machine_scale_set")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_compute_virtual_machine_scale_set")
 }
 
 control "container_registry_tagged" {
   title       = "Container registries should be tagged"
   description = "Check if Container registries have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_container_registry")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_container_registry")
 }
 
 control "cosmosdb_account_tagged" {
   title       = "CosmosDB accounts should be tagged"
   description = "Check if CosmosDB accounts have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_cosmosdb_account")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_cosmosdb_account")
 }
 
 control "cosmosdb_mongo_database_tagged" {
   title       = "CosmosDB mongo databases should be tagged"
   description = "Check if CosmosDB mongo databases have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_cosmosdb_mongo_database")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_cosmosdb_mongo_database")
 }
 
 control "cosmosdb_sql_database_tagged" {
   title       = "CosmosDB sql databases should be tagged"
   description = "Check if CosmosDB sql databases have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_cosmosdb_sql_database")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_cosmosdb_sql_database")
 }
 
 control "data_factory_tagged" {
   title       = "Data factories should be tagged"
   description = "Check if Data factories have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_data_factory")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_data_factory")
 }
 
 control "data_lake_analytics_account_tagged" {
   title       = "Data lake analytics accounts should be tagged"
   description = "Check if Data lake analytics accounts have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_data_lake_analytics_account")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_data_lake_analytics_account")
 }
 
 control "data_lake_store_tagged" {
   title       = "Data lake stores should be tagged"
   description = "Check if Data lake stores have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_data_lake_store")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_data_lake_store")
 }
 
 control "eventhub_namespace_tagged" {
   title       = "Event Hub namespaces should be tagged"
   description = "Check if Event Hub namespaces have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_eventhub_namespace")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_eventhub_namespace")
 }
 
 control "express_route_circuit_tagged" {
   title       = "ExpressRoute circuits should be tagged"
   description = "Check if ExpressRoute circuits have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_express_route_circuit")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_express_route_circuit")
 }
 
 control "firewall_tagged" {
   title       = "Firewalls should be tagged"
   description = "Check if Firewalls have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_firewall")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_firewall")
 }
 
 control "iothub_tagged" {
   title       = "IoT Hubs should be tagged"
   description = "Check if IoT Hubs have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_iothub")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_iothub")
 }
 
 control "key_vault_tagged" {
   title       = "Key vaults should be tagged"
   description = "Check if Key vaults have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_key_vault")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_key_vault")
 }
 
 control "key_vault_deleted_vault_tagged" {
   title       = "Key vault deleted vaults should be tagged"
   description = "Check if Key vault deleted vaults have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_key_vault_deleted_vault")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_key_vault_deleted_vault")
 }
 
 control "key_vault_key_tagged" {
   title       = "Key vault keys should be tagged"
   description = "Check if Key vault keys have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_key_vault_key")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_key_vault_key")
 }
 
 control "key_vault_managed_hardware_security_module_tagged" {
   title       = "Key vault managed hardware security modules should be tagged"
   description = "Check if Key vault managed hardware security modules have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_key_vault_managed_hardware_security_module")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_key_vault_managed_hardware_security_module")
 }
 
 control "key_vault_secret_tagged" {
   title       = "Key vault secrets should be tagged"
   description = "Check if Key vault secrets have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_key_vault_secret")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_key_vault_secret")
 }
 
 control "kubernetes_cluster_tagged" {
   title       = "Kubernetes clusters should be tagged"
   description = "Check if Kubernetes clusters have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_kubernetes_cluster")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_kubernetes_cluster")
 }
 
 control "lb_tagged" {
   title       = "Load balancers should be tagged"
   description = "Check if Load balancers have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_lb")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_lb")
 }
 
 control "log_alert_tagged" {
   title       = "Log alerts should be tagged"
   description = "Check if Log alerts have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_log_alert")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_log_alert")
 }
 
 control "log_profile_tagged" {
   title       = "Log profiles should be tagged"
   description = "Check if Log profiles have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_log_profile")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_log_profile")
 }
 
 control "logic_app_workflow_tagged" {
   title       = "Logic app workflows should be tagged"
   description = "Check if Logic app workflows have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_logic_app_workflow")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_logic_app_workflow")
 }
 
 control "mariadb_server_tagged" {
   title       = "MariaDB servers should be tagged"
   description = "Check if MariaDB servers have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_mariadb_server")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_mariadb_server")
 }
 
 control "mssql_elasticpool_tagged" {
   title       = "Microsoft SQL elasticpools should be tagged"
   description = "Check if Microsoft SQL elasticpools have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_mssql_elasticpool")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_mssql_elasticpool")
 }
 
 control "mssql_managed_instance_tagged" {
   title       = "Microsoft SQL managed instances should be tagged"
   description = "Check if Microsoft SQL managed instances have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_mssql_managed_instance")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_mssql_managed_instance")
 }
 
 control "mysql_server_tagged" {
   title       = "MySQL servers should be tagged"
   description = "Check if MySQL servers have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_mysql_server")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_mysql_server")
 }
 
 control "network_interface_tagged" {
   title       = "Network interfaces should be tagged"
   description = "Check if Network interfaces have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_network_interface")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_network_interface")
 }
 
 control "network_security_group_tagged" {
   title       = "Network security groups should be tagged"
   description = "Check if Network security groups have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_network_security_group")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_network_security_group")
 }
 
 control "network_watcher_tagged" {
   title       = "Network watchers should be tagged"
   description = "Check if Network watchers have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_network_watcher")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_network_watcher")
 }
 
 control "network_watcher_flow_log_tagged" {
   title       = "Network watcher flow logs should be tagged"
   description = "Check if Network watcher flow logs have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_network_watcher_flow_log")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_network_watcher_flow_log")
 }
 
 control "postgresql_server_tagged" {
   title       = "PostgreSQL servers should be tagged"
   description = "Check if PostgreSQL servers have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_postgresql_server")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_postgresql_server")
 }
 
 control "public_ip_tagged" {
   title       = "Public IPs should be tagged"
   description = "Check if Public IPs have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_public_ip")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_public_ip")
 }
 
 control "recovery_services_vault_tagged" {
   title       = "Recovery services vaults should be tagged"
   description = "Check if Recovery services vaults have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_recovery_services_vault")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_recovery_services_vault")
 }
 
 control "redis_cache_tagged" {
   title       = "Redis caches should be tagged"
   description = "Check if Redis caches have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_redis_cache")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_redis_cache")
 }
 
 control "resource_group_tagged" {
   title       = "Resource groups should be tagged"
   description = "Check if Resource groups have at least 1 tag."
-  sql         = replace(local.untagged_sql_subscription, "__TABLE_NAME__", "azure_resource_group")
+  sql         = replace(local.tagged_sql_subscription, "__TABLE_NAME__", "azure_resource_group")
 }
 
 control "route_table_tagged" {
   title       = "Route tables should be tagged"
   description = "Check if Route tables have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_route_table")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_route_table")
 }
 
 control "search_service_tagged" {
   title       = "Search services should be tagged"
   description = "Check if Search services have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_search_service")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_search_service")
 }
 
 control "servicebus_namespace_tagged" {
   title       = "Service Bus namespaces should be tagged"
   description = "Check if Service Bus namespaces have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_servicebus_namespace")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_servicebus_namespace")
 }
 
 control "sql_database_tagged" {
   title       = "SQL databases should be tagged"
   description = "Check if SQL databases have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_sql_database")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_sql_database")
 }
 
 control "sql_server_tagged" {
   title       = "SQL servers should be tagged"
   description = "Check if SQL servers have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_sql_server")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_sql_server")
 }
 
 control "storage_account_tagged" {
   title       = "Storage accounts should be tagged"
   description = "Check if Storage accounts have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_storage_account")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_storage_account")
 }
 
 control "stream_analytics_job_tagged" {
   title       = "Stream Analytics jobs should be tagged"
   description = "Check if Stream Analytics jobs have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_stream_analytics_job")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_stream_analytics_job")
 }
 
 control "virtual_network_tagged" {
   title       = "Virtual networks should be tagged"
   description = "Check if Virtual networks have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_virtual_network")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_virtual_network")
 }
 
 control "virtual_network_gateway_tagged" {
   title       = "Virtual network gateways should be tagged"
   description = "Check if Virtual network gateways have at least 1 tag."
-  sql         = replace(local.untagged_sql_resource_group, "__TABLE_NAME__", "azure_virtual_network_gateway")
+  sql         = replace(local.tagged_sql_resource_group, "__TABLE_NAME__", "azure_virtual_network_gateway")
 }
