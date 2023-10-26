@@ -2,9 +2,10 @@ locals {
   tagged_sql = <<EOQ
     select
       id as resource,
+      tags::text as tags,
       case
-        when tags is not null or tags::text <> '{}' then 'alarm'
-        else 'ok'
+        when tags is not null or tags::text <> '{}' then 'ok'
+        else 'alarm'
       end as status,
       case
         when tags is not null or tags::text <> '{}' then title || ' has tags.'
